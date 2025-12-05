@@ -1,0 +1,17 @@
+{
+  "name": "Color Vibe",
+  "short_name": "Color Vibe",
+  "description": "Um aplicativo de sincronização de luz de tela em tempo real. Ilumine a festa com cores vibrantes.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111827",
+  "theme_color": "#111827",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3159/3159061.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Vibe 1.2</title>
+    <meta name="theme-color" content="#111827" />
+    <link rel="manifest" href="manifest.json" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use cdnjs simple import to prevent integrity/cors issues -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js"></script>
+    <!-- Google Identity Services -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <style>
+      /* Custom animations for smooth color transitions */
+      .transition-bg {
+        transition: background-color 0.5s ease-in-out;
+      }
+      @keyframes pulse-slow {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.8; }
+      }
+      .animate-pulse-slow {
+        animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+      
+      /* Camera Movement (Drone effect) */
+      @keyframes drift {
+        0% { transform: scale(1) translate(0, 0); }
+        50% { transform: scale(1.1) translate(-1%, -1%); }
+        100% { transform: scale(1) translate(0, 0); }
+      }
+      .animate-drift {
+        animation: drift 20s ease-in-out infinite alternate;
+      }
+
+      /* Phone Flashlights Twinkle - RED VERSION */
+      @keyframes twinkle {
+        0%, 100% { opacity: 0; transform: scale(0.5); }
+        50% { opacity: 1; transform: scale(1.5); box-shadow: 0 0 10px 2px rgba(255, 0, 0, 0.8); }
+      }
+      .animate-twinkle {
+        animation: twinkle 2s ease-in-out infinite;
+      }
+
+      /* Scanner Laser Animation */
+      @keyframes scan-laser {
+        0% { top: 0%; opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { top: 100%; opacity: 0; }
+      }
+      .animate-scan-laser {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: #ef4444; /* Red laser matches theme */
+        box-shadow: 0 0 15px #ef4444, 0 0 5px #ffaaaa;
+        animation: scan-laser 2s linear infinite;
+        z-index: 20;
+      }
+
+      /* Success Pulse */
+      @keyframes success-pulse {
+        0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); border-color: #10B981; }
+        70% { box-shadow: 0 0 0 20px rgba(16, 185, 129, 0); border-color: #10B981; }
+        100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); border-color: #10B981; }
+      }
+      .animate-success-pulse {
+        animation: success-pulse 0.5s ease-out forwards;
+      }
+
+      /* CSS Strobe Animation for smooth blinking */
+      @keyframes strobe-flash {
+        0%, 49.9% { background-color: transparent; }
+        50%, 100% { background-color: black; }
+      }
+      .strobe-overlay {
+        animation: strobe-flash 0.16s steps(1) infinite; /* ~6.25Hz cycle */
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body class="bg-gray-900 text-white overflow-y-auto">
+    <div id="root"></div>
+  </body>
+</html>
